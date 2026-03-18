@@ -26,7 +26,11 @@ final class MessengerSettableContextMiddlewarePass implements CompilerPassInterf
                 $middlewares = array_merge(array_slice($middlewares, 0, $index + 1), [
                     [
                         'id' => 'akki.sylius_messenger.set_channel_context_middleware',
-                        'arguments' => [new Reference('sylius.repository.channel'), new Reference('akki_sylius_settable_channel_plugin.context.settable_channel_context')]
+                        'arguments' => [
+                            new Reference('sylius.repository.channel'),
+                            new Reference('akki_sylius_settable_channel_plugin.context.settable_channel_context'),
+                            new Reference('router.request_context')
+                        ]
                     ],
                     [
                         'id' => 'akki.sylius_messenger.set_locale_context_middleware',

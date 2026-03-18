@@ -10,12 +10,14 @@ use Sylius\Component\Channel\Repository\ChannelRepositoryInterface;
 use Symfony\Component\Messenger\Envelope;
 use Symfony\Component\Messenger\Middleware\MiddlewareInterface;
 use Symfony\Component\Messenger\Middleware\StackInterface;
+use Symfony\Component\Routing\RequestContext;
 
 final class SetChannelContextMiddleware implements MiddlewareInterface
 {
     public function __construct(
         private readonly ChannelRepositoryInterface      $channelRepository,
         private readonly SettableChannelContextInterface $settableChannelContext,
+        private readonly RequestContext $requestContext
     )
     {
     }
@@ -32,6 +34,8 @@ final class SetChannelContextMiddleware implements MiddlewareInterface
             }
 
             $this->settableChannelContext->setChannel($channel);
+            $this->requestContext->setHost($channel->getHostname());
+            $this->requestContext->setScheme('https');
         }
 
         $envelope = $stack->next()->handle($envelope, $stack);
