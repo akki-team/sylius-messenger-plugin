@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0] - 2026-08-11
+### :sparkles: New Features
+- [`f2d1bc6`](https://github.com/akki-team/sylius-messenger-plugin/commit/f2d1bc65422e157ca30264ba7d7203e0817786a2) - compatibilité Sylius 2 / PHP 8.2 *(commit by [@severine-akki](https://github.com/severine-akki))*
+
+
 ## [1.2.0] - 2026-03-18
 ### :sparkles: New Features
 - [`9109e01`](https://github.com/akki-team/sylius-messenger-plugin/commit/9109e010ae169be15c9c945c97c474555aa5145c) - Set request context host and scheme from channel in messenger middleware *(commit by [@Jgrasp](https://github.com/Jgrasp))*
@@ -17,3 +22,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 [1.1.0]: https://github.com/akki-team/sylius-messenger-plugin/compare/1.0.0...1.1.0
 [1.2.0]: https://github.com/akki-team/sylius-messenger-plugin/compare/1.1.0...1.2.0
+[2.0.0]: https://github.com/akki-team/sylius-messenger-plugin/compare/1.2.0...2.0.0
