@@ -4,7 +4,7 @@
 
 This plugin works with ```symfony/messenger``` and Sylius.
 
-With two new stamps (```LocaleStamp``` and ```ChannelStamp```) you can set the locale and channel context directly in your message.
+With two new stamps ```LocaleContextStamp``` and ```ChannelContextStamp```) you can set the locale and channel context directly in your message.
 The context will be automatically set when the message will be consumed.
 
 ## Installation
@@ -29,12 +29,12 @@ $ composer require akki-team/sylius-messenger-plugin
 
 ```php
 
-use Akki\SyliusMessengerPlugin\Stamp\ChannelStamp;
-use Akki\SyliusMessengerPlugin\Stamp\LocaleStamp;
+use Akki\SyliusMessengerPlugin\Stamp\ChannelContextStamp;
+use Akki\SyliusMessengerPlugin\Stamp\LocaleContextStamp;
 
 $envelope = new Envelope(new MyMessage(), [
-    new LocaleStamp('en_US'),
-    new ChannelStamp('web'),
+    new LocaleContextStamp('en_US'),
+    new ChannelContextStamp('web'),
 ]);
 
 $this->bus->dispatch($envelope);
