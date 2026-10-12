@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.1] - 2026-10-12
+### :sparkles: New Features
+- [`f2d1bc6`](https://github.com/akki-team/sylius-messenger-plugin/commit/f2d1bc65422e157ca30264ba7d7203e0817786a2) - compatibilité Sylius 2 / PHP 8.2 *(commit by [@severine-akki](https://github.com/severine-akki))*
+
+### :bug: Bug Fixes
+- [`9f64e6f`](https://github.com/akki-team/sylius-messenger-plugin/commit/9f64e6f4218d50cb2b6279298585796472aa2177) - réinitialiser le contexte de canal et de locale même si le handler échoue *(commit by [@jordan-akki](https://github.com/jordan-akki))*
+
+
 ## [2.0.0] - 2026-08-11
 ### :sparkles: New Features
 - [`f2d1bc6`](https://github.com/akki-team/sylius-messenger-plugin/commit/f2d1bc65422e157ca30264ba7d7203e0817786a2) - compatibilité Sylius 2 / PHP 8.2 *(commit by [@severine-akki](https://github.com/severine-akki))*
@@ -23,3 +31,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [1.1.0]: https://github.com/akki-team/sylius-messenger-plugin/compare/1.0.0...1.1.0
 [1.2.0]: https://github.com/akki-team/sylius-messenger-plugin/compare/1.1.0...1.2.0
 [2.0.0]: https://github.com/akki-team/sylius-messenger-plugin/compare/1.2.0...2.0.0
+[2.0.1]: https://github.com/akki-team/sylius-messenger-plugin/compare/1.2.1...2.0.1
