@@ -26,13 +26,15 @@ final class SetLocaleContextMiddleware implements MiddlewareInterface
             $this->settableLocaleContext->setLocaleCode($localeContextStamp->localeCode);
         }
 
-        $envelope = $stack->next()->handle($envelope, $stack);
-
-        if (null !== $localeContextStamp) {
-            $this->settableLocaleContext->reset();
+        // Reset even when the handler throws: otherwise the value stays set in a long-running
+        // worker and leaks into the next messages it handles.
+        try {
+            return $stack->next()->handle($envelope, $stack);
+        } finally {
+            if (null !== $localeContextStamp) {
+                $this->settableLocaleContext->reset();
+            }
         }
-
-        return $envelope;
     }
 
 }

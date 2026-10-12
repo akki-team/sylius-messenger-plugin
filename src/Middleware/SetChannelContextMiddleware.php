@@ -38,13 +38,15 @@ final class SetChannelContextMiddleware implements MiddlewareInterface
             $this->requestContext->setScheme('https');
         }
 
-        $envelope = $stack->next()->handle($envelope, $stack);
-
-        if (null !== $channelContextStamp) {
-            $this->settableChannelContext->reset();
+        // Reset even when the handler throws: otherwise the value stays set in a long-running
+        // worker and leaks into the next messages it handles.
+        try {
+            return $stack->next()->handle($envelope, $stack);
+        } finally {
+            if (null !== $channelContextStamp) {
+                $this->settableChannelContext->reset();
+            }
         }
-
-        return $envelope;
     }
 
 }
